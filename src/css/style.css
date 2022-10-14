@@ -113,7 +113,8 @@ button {
   display: flex;
   flex: 0 0 18%;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  z-index: 100; }
 
 .products {
   flex: 1 0 auto;
@@ -187,11 +188,40 @@ button {
       overflow: hidden !important;
       text-overflow: ellipsis; }
 
-.products__slider-button {
+.products__slider-button-right,
+.products__slider-button-left {
   position: absolute;
-  width: 2.5em;
-  height: 2.5rem;
-  color: var(--color-grey-light-4); }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 11rem; }
+  .products__slider-button-right svg,
+  .products__slider-button-left svg {
+    width: 3rem;
+    height: 3rem;
+    fill: #495057;
+    z-index: 10;
+    position: relative; }
+  .products__slider-button-right::before,
+  .products__slider-button-left::before {
+    content: "";
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    background-color: var(--color-grey-light-2);
+    border-radius: 50%;
+    border: solid var(--color-grey-light-4) 0.2px; }
+
+.products__slider-button-right {
+  left: 93rem; }
+  .products__slider-button-right svg {
+    transform: translateX(-40%); }
+
+.products__slider-button-left {
+  left: -3.2rem; }
+  .products__slider-button-left svg {
+    transform: translateX(40%);
+    fill: var(--color-grey-light-4); }
 
 .products__cards {
   display: flex;
@@ -230,6 +260,7 @@ button {
     color: var(--color-grey-dark-3);
     font-size: 2rem;
     font-weight: 700;
+    padding: 1rem 0.1rem;
     background-color: #f1f3f5; }
   .products__card-shipping {
     margin-top: 1.1rem;
