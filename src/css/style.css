@@ -74,6 +74,10 @@ button {
   /* Corrects inability to style clickable `input` types in iOS */
   -webkit-appearance: none; }
 
+.lazy-load-img {
+  width: 100% !important;
+  margin-right: 0 !important; }
+
 .container {
   max-width: 120rem;
   min-height: 96vh;
@@ -119,7 +123,7 @@ button {
 .products {
   flex: 1;
   margin-left: 1.5rem;
-  overflow: auto;
+  overflow: hidden;
   position: relative; }
 
 .side-nav {

@@ -121,6 +121,7 @@
   height: 100%;
 }
 
+// Create the circle behind the slider arrow
 .swiper-button-prev::before,
 .swiper-button-next::before {
   content: "";
@@ -133,6 +134,7 @@
   z-index: -1;
 }
 
+// Style slider arrows
 .swiper-button-next::after,
 .swiper-button-prev::after{
   position: relative;
@@ -141,6 +143,7 @@
   color: #495057;;
 }
 
+// Position arrows inside of the circle
 .swiper-button-prev::after{
   transform: translateX(200%);
 }
@@ -148,60 +151,15 @@
   transform: translateX(-200%);
 }
 
+// Position slider buttons in products box
 .swiper-button-prev {
   transform: translateY(-16rem) translateX(-3rem);
-
 }
 .swiper-button-next {
   transform: translateY(-16rem) translateX(3rem);
 }
 
-// // Style slider buttons
-// .products__slider-button-right,
-// .products__slider-button-left {
-//   position: absolute;
-
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   top: 11rem;
-
-//   // Style icons
-//   svg {
-//     width: 3rem;
-//     height: 3rem;
-//     fill: #495057;
-//     z-index: 10;
-//     position: relative;
-//   }
-
-//   // Create the half circle behind the slider arrow
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     width: 7rem;
-//     height: 7rem;
-//     background-color: var(--color-grey-light-2);
-//     border-radius: 50%;
-//     border: solid var(--color-grey-light-4) 0.2px;
-//   }
-// }
-// .products__slider-button-right {
-//   left: 93rem;
-
-//   svg {
-//     transform: translateX(-40%);
-//   }
-// }
-// .products__slider-button-left {
-//   left: -3.2rem;
-//   svg {
-//     transform: translateX(40%);
-//     fill: var(--color-grey-light-4) ;
-//   }
-// }
-
+// Style product cards
 .products__cards {
   display: flex;
   // Must be so othwerwise slider does not work properly
