@@ -1,32 +1,31 @@
-import { async } from 'regenerator-runtime';
-import { API_URL, RES_PER_PAGE, KEY } from './config.js';
-import { getJSON } from './helpers.js';
+import { API_URL } from "./config.js";
+import { getJSON } from "./helpers.js";
 
-export const state = {
-  products: {},
+export let state = {
+  userCategories: [],
+  recommendedProducts: [],
 };
 
-const createRecipeObject = function (data) {
-  const { recipe } = data.data;
-  return {
-    id: recipe.id,
-    title: recipe.title,
-    publisher: recipe.publisher,
-    sourceUrl: recipe.source_url,
-    image: recipe.image_url,
-    servings: recipe.servings,
-    cookingTime: recipe.cooking_time,
-    ingredients: recipe.ingredients,
-    ...(recipe.key && { key: recipe.key }),
-  };
+const restructureData = function (data) {
+  const userCategories = data[0][0].params.userCategories
+  const recommendedProducts = Object.values(data[0][0].params.recommendedProducts).slice(0,-2)
+
+  console.log(userCategories)
+  const newState = {
+    userCategories,
+    recommendedProducts 
+  }
+
+  return newState;
 };
 
-export const loadProducts = async function (id) {
+export const loadData = async function (id) {
   try {
-    const data = await getJSON(`${API_URL}${id}?key=${KEY}`);
-    state.recipe = createRecipeObject(data);
+    const data = await getJSON(`${API_URL}`);
+    const structuredData = restructureData(data)
 
-    console.log(state.recipe);
+    state = structuredData
+
   } catch (err) {
     // Temp error handling
     console.error(`${err} 💥💥💥💥`);
@@ -34,5 +33,4 @@ export const loadProducts = async function (id) {
   }
 };
 
-
-
+loadData();

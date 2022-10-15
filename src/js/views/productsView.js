@@ -1,13 +1,14 @@
 import View from './View.js';
-
+import {state} from "../model.js"
 
 class ProductsView extends View {
-  _parentElement = document.querySelector('.recipe');
-  _errorMessage = 'We could not find that recipe. Please try another one!';
+  _parentElement = document.querySelector('.products');
+  _activeCategory = document.querySelector('.side-nav__item--active')
+  _errorMessage = 'We could not find that element. Please try another one!';
   _message = '';
 
-  addHandlerRender(handler) {
-    ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
+  _checkCategories(){
+     state.userCategories.filter()
   }
 
   _generateMarkup() {
