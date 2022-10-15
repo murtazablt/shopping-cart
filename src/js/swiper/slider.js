@@ -23,4 +23,3 @@ var slider = new Swiper(".slider", {
   },
 });
 
-console.log("swiper.js TEST");

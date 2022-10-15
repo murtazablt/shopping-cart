@@ -9,4 +9,3 @@ var lazyloading = new Swiper(".lazyloading", {
   checkInView: true,
 });
 
-console.log("lazyload.js TEST");

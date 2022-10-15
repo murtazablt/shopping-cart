@@ -1,0 +1,115 @@
+// SİDE-NAV
+
+.side-nav {
+    font-size: 1.5rem;
+    list-style: none;
+    margin-top: 1rem;
+    min-width: max-content;
+    min-height: max-content;
+    position: relative;
+  
+    @media only screen and (max-width: $bp-medium) {
+      display: flex;
+      margin: 0;
+    }
+  
+    // Add padding, set the height and center the content on all sidenav elements
+    & > * {
+      padding: 2.5rem 0.1rem;
+      cursor: pointer;
+      height: 3rem;
+  
+      display: flex;
+      align-items: center;
+      justify-self: center;
+    }
+  
+    &__item {
+      // Set font-weight and color of sidenav items
+      position: relative;
+      color: var(--color-grey-dark-2);
+      font-weight: 500;
+  
+      // Add margin-bottom all sidenav elements
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+  
+        @media only screen and (max-width: $bp-medium) {
+          margin: 0;
+        }
+      }
+  
+      @media only screen and (max-width: $bp-medium) {
+        flex: 1;
+      }
+    }
+  
+    // Create blue bar for selected and hovered sidenav items
+    &__item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 5px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      background-color: var(--color-blue-dark);
+  
+      transform: scaleY(0);
+      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s;
+    }
+  
+    // Add light blue color in background when sidenav item gets hovered
+    &__item:hover {
+      background-color: var(--color-blue-light);
+      color: var(--color-blue-dark);
+    }
+  
+    // Add light blue color constantly in backgorund of selected sidenav item
+    &__item--active {
+      color: var(--color-blue-dark);
+      background-color: var(--color-blue-light);
+    }
+  
+    // Add blue bar constantly on the left side of selected sidenav item
+    &__item:hover::before,
+    &__item--active::before {
+      transform: scaleY(1);
+    }
+  
+    &__item:active::before {
+      background-color: var(--color-blue-dark);
+    }
+  
+    // Style anchor elements in sidenav
+    &__link:link,
+    &__link:visited {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      padding: 1rem 2.5rem;
+  
+      z-index: 10;
+  
+      display: flex;
+      align-items: center;
+  
+      // Add three dots if the content overflows
+      span {
+        display: inline-block;
+        width: 19rem;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+      }
+  
+      @media only screen and (max-width: $bp-medium) {
+      }
+  
+      @media only screen and (max-width: $bp-small) {
+      }
+    }
+  }
+  
