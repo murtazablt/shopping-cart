@@ -24,7 +24,6 @@
     justify-self: center;
   }
 
-
   &__item {
     // Set font-weight and color of sidenav items
     position: relative;
@@ -116,58 +115,92 @@
 
 // PRODUCTS BOX
 
-.swiper{
+.swiper {
   // Set the size of swiper container
   width: 100%;
   height: 100%;
 }
 
-// Style slider buttons
-.products__slider-button-right,
-.products__slider-button-left {
+.swiper-button-prev::before,
+.swiper-button-next::before {
+  content: "";
   position: absolute;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  top: 11rem;
-
-  // Style icons
-  svg {
-    width: 3rem;
-    height: 3rem;
-    fill: #495057;
-    z-index: 10;
-    position: relative;
-  }
-
-  // Create the half circle behind the slider arrow
-  &::before {
-    content: "";
-    position: absolute;
-    width: 7rem;
-    height: 7rem;
-    background-color: var(--color-grey-light-2);
-    border-radius: 50%;
-    border: solid var(--color-grey-light-4) 0.2px;
-  }
-}
-.products__slider-button-right {
-  left: 93rem;
-
-  svg {
-    transform: translateX(-40%);
-  }
-}
-.products__slider-button-left {
-  left: -3.2rem;
-  svg {
-    transform: translateX(40%);
-    fill: var(--color-grey-light-4) ;
-  }
+  width: 7rem;
+  height: 7rem;
+  background-color: var(--color-grey-light-1);
+  border-radius: 50%;
+  border: solid var(--color-grey-light-4) 0.2px;
+  z-index: -1;
 }
 
+.swiper-button-next::after,
+.swiper-button-prev::after{
+  position: relative;
+  font-size: 1.5rem !important;
+  font-weight: 700;
+  color: #495057;;
+}
+
+.swiper-button-prev::after{
+  transform: translateX(200%);
+}
+.swiper-button-next::after{
+  transform: translateX(-200%);
+}
+
+.swiper-button-prev {
+  transform: translateY(-16rem) translateX(-3rem);
+
+}
+.swiper-button-next {
+  transform: translateY(-16rem) translateX(3rem);
+}
+
+// // Style slider buttons
+// .products__slider-button-right,
+// .products__slider-button-left {
+//   position: absolute;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   top: 11rem;
+
+//   // Style icons
+//   svg {
+//     width: 3rem;
+//     height: 3rem;
+//     fill: #495057;
+//     z-index: 10;
+//     position: relative;
+//   }
+
+//   // Create the half circle behind the slider arrow
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     width: 7rem;
+//     height: 7rem;
+//     background-color: var(--color-grey-light-2);
+//     border-radius: 50%;
+//     border: solid var(--color-grey-light-4) 0.2px;
+//   }
+// }
+// .products__slider-button-right {
+//   left: 93rem;
+
+//   svg {
+//     transform: translateX(-40%);
+//   }
+// }
+// .products__slider-button-left {
+//   left: -3.2rem;
+//   svg {
+//     transform: translateX(40%);
+//     fill: var(--color-grey-light-4) ;
+//   }
+// }
 
 .products__cards {
   display: flex;
@@ -179,7 +212,7 @@
   width: 18.5rem;
   height: 50rem;
 
-  display: flex ;
+  display: flex;
   flex-direction: column;
 
   // Style the image of product
