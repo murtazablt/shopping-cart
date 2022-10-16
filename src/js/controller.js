@@ -1,54 +1,52 @@
 import * as model from './model.js';
-import { MODAL_CLOSE_SEC } from './config.js';
-import recipeView from './views/recipeView.js';
-import searchView from './views/searchView.js';
-import resultsView from './views/resultsView.js';
-import paginationView from './views/paginationView.js';
-import bookmarksView from './views/bookmarksView.js';
-import addRecipeView from './views/addRecipeView.js';
+import categoryView from './views/categoryView.js';
+
 import productsView from './views/productsView.js';
-import userCategoriesView from './views/userCategoriesView.js';
 
 
-const controlProducts = async function () {
+const controlProducts = async function() {
   try {
-    const id = window.location.hash.slice(1);
+    // 1) Loading products
+    await model.loadData();
 
-    if (!id) return;
-    recipeView.renderSpinner();
-
-    // 2) Loading products
-    await model.loadProducts(id);
+    // 2) Find out selected category
+    const activeCategory = model.state.selectedCategoryID
 
     // 3) Rendering products
-    recipeView.render(model.state.recipe);
+    productsView.render(model.state.recommendedProducts,activeCategory);
   } catch (err) {
-    recipeView.renderError();
+    //recipeView.renderError();
     console.error(err);
   }
 };
 
-const controlUserCategories = async function (){
-    try {
-        const id = window.location.hash.slice(1);
+const controlCategories = async function(e) {
+  try {
+    //Check Products
+    if(model.state.recommendedProducts == []) await model.loadData()
+
+
+    //Get categoryID
+    const categoryID = e.target.id
     
-        // if (!id) return;
-        // recipeView.renderSpinner();
+    //Change Selected Category
+    model.changeSelectedCategory(categoryID)
+    model.changeActiveClass(categoryID)
+
+    //Render new produts
+     const activeCategoryID = model.state.selectedCategoryID
     
-        // 2) Loading products
-        await model.loadProducts(id);
+    productsView.render(model.state.recommendedProducts,activeCategoryID)
     
-        // 3) Rendering products
-        recipeView.render(model.state.recipe);
-      } catch (err) {
-        recipeView.renderError();
-        console.error(err);
-      }
+  } catch (err) {
+    console.log(err);
+  }
 }
+
 
 
 const init = function () {
   productsView.addHandlerRender(controlProducts);
-  userCategoriesView.addHandlerRender(controlUserCategories)
+  categoryView.addHandlerChangeCategory(controlCategories)
 };
-// init();
+init();

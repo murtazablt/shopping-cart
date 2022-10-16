@@ -83,6 +83,12 @@ button {
   width: 100%;
   height: 100%; }
 
+.identifier {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100%; }
+
 .container {
   max-width: 120rem;
   min-height: 96vh;
@@ -197,6 +203,8 @@ button {
 
 .products__cards {
   display: flex;
+  width: 100%;
+  height: 100%;
   overflow-x: visible; }
 
 .products__card {
@@ -229,10 +237,11 @@ button {
     color: var(--color-grey-dark-3);
     font-size: 2rem;
     font-weight: 700;
-    padding: 1rem 0.1rem;
+    padding: 1rem 1rem;
     background-color: #f1f3f5; }
   .products__card-shipping {
     margin-top: 1.1rem;
+    margin-left: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: flex-start; }
@@ -249,6 +258,7 @@ button {
       color: #868e96; }
 
 .side-nav {
+  position: relative;
   font-size: 1.5rem;
   list-style: none;
   margin-top: 1rem;
