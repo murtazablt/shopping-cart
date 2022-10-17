@@ -35,9 +35,21 @@
   // Position slider buttons in products box
   .swiper-button-prev {
     transform: translateY(-16rem) translateX(-3rem);
+
+    @media only screen and (max-width: $bp-small) {
+      transform: translateY(-16rem) translateX(-3.5rem);
+    }
   }
   .swiper-button-next {
     transform: translateY(-16rem) translateX(3rem);
+    
+    @media only screen and (max-width: $bp-medium) {
+      transform: translateY(-16rem) translateX(1rem);
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      transform: translateY(-16rem) translateX(2rem);
+    }
   }
   
   // Style product cards
@@ -46,16 +58,20 @@
     width: 100%;
     height: 100%;
     // Must be so othwerwise slider does not work properly
-    background-color: var(--color-grey-light-2);
+    background-color: var(--color-grey-light-1);
     overflow-x: visible;
+
+    @media only screen and (max-width: $bp-medium) {
+      margin-top: 1rem;
+    }
   }
   .products__card {
     // Set the size of product card
     width: 18.5rem;
     height: 50rem;
     
-    border: solid var(--color-grey-light-3) 0.2px;
-    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+
     display: flex;
     flex-direction: column;
   

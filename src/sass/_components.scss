@@ -46,7 +46,7 @@
   .btn-order{
     display: none;
 
-    @media only screen and (max-width: $bp-smallest) {
+    @media only screen and (max-width: $bp-small) {
       display: block;
       
       margin-top: 2rem;
@@ -60,10 +60,7 @@
       justify-content: center;
       align-items: center;
 
-      &:hover {
-        
-      }
-    
+
       &:focus {
         outline: none;
       }
