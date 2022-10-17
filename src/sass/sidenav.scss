@@ -3,7 +3,7 @@
 .side-nav {
   position: relative;
   box-sizing: border-box !important;
-  
+
   // to solve conflict with swiper-wrapper
   flex-direction: column;
 
@@ -71,8 +71,6 @@
       height: 100% !important;
       padding: 0.5rem 1rem;
     }
-
-    
   }
 
   // Create blue bar for selected and hovered sidenav items

@@ -4,8 +4,6 @@ import {state} from "../model.js"
 class ProductsView extends View {
   _parentElement = document.querySelector('.products__cards');
   _activeCategoryID = document.querySelector('.side-nav__item--active').id
-  _errorMessage = 'We could not find that element. Please try another one!';
-  _message = '';
 
   addHandlerRender(handler) {
     ['load'].forEach(ev => window.addEventListener(ev, handler));
@@ -37,8 +35,8 @@ class ProductsView extends View {
                       <div>
                         <div class="lazy-load-img">
                           <img
-                            src=${product.image}
-                            class=" products__card-img"
+                            data-src=${product.image}
+                            class="products__card-img lazy"
                           />
                         </div>
                       </div>
@@ -56,7 +54,6 @@ class ProductsView extends View {
 
     });
 
-    const childrenNode = emptyDiv.children
     const markup = emptyDiv.innerHTML
     
     return `${markup}` ;

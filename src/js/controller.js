@@ -4,6 +4,7 @@ import categoryView from './views/categoryView.js';
 import productsView from './views/productsView.js';
 
 
+
 const controlProducts = async function() {
   try {
     // 1) Loading products
