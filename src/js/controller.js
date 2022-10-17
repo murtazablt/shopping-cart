@@ -1,53 +1,47 @@
-import * as model from './model.js';
-import categoryView from './views/categoryView.js';
+import * as model from "./model.js";
+import categoryView from "./views/categoryView.js";
 
-import productsView from './views/productsView.js';
+import productsView from "./views/productsView.js";
 
-
-
-const controlProducts = async function() {
+const controlProducts = async function () {
   try {
     // 1) Loading products
     await model.loadData();
 
     // 2) Find out selected category
-    const activeCategory = model.state.selectedCategoryID
+    const activeCategory = model.state.selectedCategoryID;
 
     // 3) Rendering products
-    productsView.render(model.state.recommendedProducts,activeCategory);
+    productsView.render(model.state.recommendedProducts, activeCategory);
   } catch (err) {
-    //recipeView.renderError();
+    // Temp err handler
     console.error(err);
   }
 };
 
-const controlCategories = async function(e) {
+const controlCategories = async function (e) {
   try {
     //Check Products
-    if(model.state.recommendedProducts == []) await model.loadData()
-
+    if (model.state.recommendedProducts == []) await model.loadData();
 
     //Get categoryID
-    const categoryID = e.target.id
-    
+    const categoryID = e.target.id;
+
     //Change Selected Category
-    model.changeSelectedCategory(categoryID)
-    model.changeActiveClass(categoryID)
+    model.changeSelectedCategory(categoryID);
+    model.changeActiveClass(categoryID);
 
     //Render new produts
-     const activeCategoryID = model.state.selectedCategoryID
-    
-    productsView.render(model.state.recommendedProducts,activeCategoryID)
-    
+    const activeCategoryID = model.state.selectedCategoryID;
+
+    productsView.render(model.state.recommendedProducts, activeCategoryID);
   } catch (err) {
     console.log(err);
   }
-}
-
-
+};
 
 const init = function () {
   productsView.addHandlerRender(controlProducts);
-  categoryView.addHandlerChangeCategory(controlCategories)
+  categoryView.addHandlerChangeCategory(controlCategories);
 };
 init();

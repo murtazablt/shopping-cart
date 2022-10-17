@@ -1,4 +1,5 @@
-import {io} from "../lazyLoading/lazyLoading.js"
+import { io } from "../lazyLoading/lazyLoading.js";
+import { addPopUp, removePopUp } from "../model.js";
 
 export default class View {
   _data;
@@ -20,12 +21,26 @@ export default class View {
 
     this._clear();
 
+    // add products
     this._parentElement.insertAdjacentHTML("beforeend", markup);
-    document.querySelectorAll(".lazy").forEach((element) => io.observe(element));
+
+    // begin lazy loading for images
+    document
+      .querySelectorAll(".lazy")
+      .forEach((element) => io.observe(element));
+
+    // add event listener on order button
+    document
+      .querySelectorAll(".btn-order")
+      .forEach((element) => element.addEventListener("click", addPopUp));
+
+    //add event listener on close icon
+    document
+      .querySelector(".btn-close-icon")
+      .addEventListener("click", removePopUp);
   }
 
   _clear() {
     this._parentElement.innerHTML = "";
   }
-
 }

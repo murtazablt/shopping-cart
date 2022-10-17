@@ -46,3 +46,26 @@ export const changeActiveClass = function (categoryID) {
   newActiveElement.classList.add("side-nav__item--active")
 
 };
+
+
+export const addPopUp = function () {
+  const popUpEl = document.querySelector(".pop-up")
+  popUpEl.classList.remove("hide-popup")
+  popUpEl.classList.add("show-popup")
+  
+  
+  const timeout = setTimeout(() => {
+    popUpEl.classList.remove("show-popup")
+    popUpEl.classList.add("hide-popup")
+    
+  }, 4000);
+
+
+}
+
+export const removePopUp = function() {
+  const popUpEl = document.querySelector(".pop-up")
+
+  popUpEl.classList.remove("show-popup")
+  popUpEl.classList.add("hide-popup")
+}

@@ -91,6 +91,13 @@ button {
   width: 100%;
   height: 100%; }
 
+.show-popup {
+  transform: translateX(0) !important;
+  opacity: 0.9 !important; }
+
+.hide-popup {
+  opacity: 0 !important; }
+
 .container {
   max-width: 120rem;
   min-height: 96vh;
@@ -212,7 +219,8 @@ button {
   width: 100%;
   height: 100%;
   background-color: var(--color-grey-light-1);
-  overflow-x: visible; }
+  overflow-x: visible;
+  transition: all 0.3s; }
   @media only screen and (max-width: 56.25em) {
     .products__cards {
       margin-top: 1rem; } }
@@ -222,8 +230,12 @@ button {
   height: 50rem;
   box-shadow: var(--shadow-light);
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  transition: 0.3s; }
   .products__card-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0.2rem;
     flex: 0 0 45%; }
   .products__card-img {
@@ -267,6 +279,62 @@ button {
       font-size: 1.2rem;
       font-weight: 700;
       color: #868e96; }
+
+.pop-up {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 30rem;
+  height: 8rem;
+  border-radius: 10px;
+  z-index: 20;
+  bottom: 15rem;
+  right: 1.3rem;
+  background-color: var(--color-grey-dark-3);
+  transform: translateX(110%);
+  transition: all 0.5s ease-in-out; }
+  .pop-up__check {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .pop-up__check-icon {
+    position: relative;
+    margin: 0 2rem; }
+    .pop-up__check-icon::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #2b8a3e;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      top: -0.5rem;
+      left: -0.5rem; }
+    .pop-up__check-icon svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      z-index: 200;
+      position: relative;
+      font-weight: 700;
+      fill: var(--color-grey-light-1); }
+  .pop-up__check-texts p {
+    color: var(--color-grey-light-1);
+    font-size: 1.5rem; }
+  .pop-up__check-texts a:link,
+  .pop-up__check-texts a:visited {
+    text-decoration: none;
+    color: var(--color-grey-light-4);
+    font-size: 1.2rem;
+    display: block; }
+  .pop-up__close-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem; }
+    .pop-up__close-icon svg {
+      width: 3rem;
+      height: 3rem;
+      fill: var(--color-grey-light-1); }
 
 .side-nav {
   position: relative;

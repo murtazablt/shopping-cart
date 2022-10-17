@@ -1,18 +1,19 @@
-import View from './View.js';
-import {state} from "../model.js"
+import View from "./View.js";
+import { state } from "../model.js";
 
 class ProductsView extends View {
-  _parentElement = document.querySelector('.products__cards');
-  _activeCategoryID = document.querySelector('.side-nav__item--active').id
+  _parentElement = document.querySelector(".products__cards");
+  _activeCategoryID = document.querySelector(".side-nav__item--active").id;
+  _orderButton = document.querySelector(".btn-order");
 
   addHandlerRender(handler) {
-    ['load'].forEach(ev => window.addEventListener(ev, handler));
+    ["load"].forEach((ev) => window.addEventListener(ev, handler));
   }
 
   _generateMarkup(products) {
     // products = [{productId: .., name: ..},{..},{..}]
 
-    let emptyDiv = document.createElement("div")
+    let emptyDiv = document.createElement("div");
     const freeShipping = `<div class="products__card-shipping">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
@@ -25,9 +26,9 @@ class ProductsView extends View {
                           </svg>
 
                           <span>Ücretsiz Kargo</span>
-                        </div>`
+                        </div>`;
 
-    products.forEach(product => {
+    products.forEach((product) => {
       const newContent = `
                 <div class="products__card swiper-slide">
                   <div class="products__card-img-container">
@@ -46,19 +47,17 @@ class ProductsView extends View {
                     ${product.name}  
                   </p>
                   <span class="products__card-price">${product.priceText}</span>
-                  ${product.params.shippingFee == "FREE" ? freeShipping : "" }
+                  ${product.params.shippingFee == "FREE" ? freeShipping : ""}
                   <button class="btn-order"><span>Sepete Ekle</span></button>
                 </div>
-      `
-      emptyDiv.insertAdjacentHTML("beforeend",newContent)
-
+      `;
+      emptyDiv.insertAdjacentHTML("beforeend", newContent);
     });
 
-    const markup = emptyDiv.innerHTML
-    
-    return `${markup}` ;
-  }
+    const markup = emptyDiv.innerHTML;
 
+    return `${markup}`;
+  }
 }
 
 export default new ProductsView();

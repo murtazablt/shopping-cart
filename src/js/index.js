@@ -1,5 +1,6 @@
-import "./swiper/categorySlider.js";
-import "./swiper/slider.js";
+import "./controller.js";
 import "./helpers.js";
 import "./model.js";
-import "./controller.js";
+import "./swiper/categorySlider.js";
+import "./swiper/slider.js";
+
