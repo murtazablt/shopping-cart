@@ -46,13 +46,16 @@
     width: 100%;
     height: 100%;
     // Must be so othwerwise slider does not work properly
+    background-color: var(--color-grey-light-2);
     overflow-x: visible;
   }
   .products__card {
     // Set the size of product card
     width: 18.5rem;
     height: 50rem;
-  
+    
+    border: solid var(--color-grey-light-3) 0.2px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
   

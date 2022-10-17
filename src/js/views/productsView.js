@@ -48,7 +48,8 @@ class ProductsView extends View {
                     ${product.name}  
                   </p>
                   <span class="products__card-price">${product.priceText}</span>
-                  ${product.params.shippingFee == "FREE" && freeShipping }
+                  ${product.params.shippingFee == "FREE" ? freeShipping : "" }
+                  <button class="btn-order"><span>Sepete Ekle</span></button>
                 </div>
       `
       emptyDiv.insertAdjacentHTML("beforeend",newContent)

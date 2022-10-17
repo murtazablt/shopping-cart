@@ -46,7 +46,18 @@
   height: 100%;
   @media only screen and (max-width: $bp-medium) {
     flex-direction: column;
+
   }
+  // @media only screen and (max-width: $bp-small) {
+  //   flex-direction: column;
+  //   flex-wrap: wrap;
+    
+  // }
+  // @media only screen and (max-width: $bp-smallest) {
+  //   flex-direction: column;
+  //   flex-wrap: wrap;
+    
+  // }
 }
 .sidebar {
 
@@ -57,6 +68,10 @@
   justify-content: space-between;
 
   z-index: 100;
+
+  @media only screen and (max-width: $bp-smallest) {
+  flex: 0 0 auto;  
+  }
 
 }
 .products {

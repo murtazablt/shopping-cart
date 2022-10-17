@@ -60,6 +60,11 @@ html {
   @media only screen and (max-width: $bp-large) {
     font-size: 50%; // 1rem = 8px
   }
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 50%; // 1rem = 8px
+      
+  }
 }
 
 body {
@@ -120,3 +125,4 @@ button {
   width: 100%;
   height: 100%;
 }
+
