@@ -33,15 +33,13 @@ class ProductsView extends View {
       const newContent = `
                 <div class="products__card swiper-slide">
                   <div class="products__card-img-container">
-                    <div class="lazyloading">
-                      <div class="swiper-wrapper">
-                        <!-- Lazy image -->
-                        <div class="swiper-slide lazy-load-img">
+                    <div >
+                      <div>
+                        <div class="lazy-load-img">
                           <img
                             src=${product.image}
-                            class="swiper-lazy products__card-img"
+                            class=" products__card-img"
                           />
-                          <div class="swiper-lazy-preloader"></div>
                         </div>
                       </div>
                     </div>
